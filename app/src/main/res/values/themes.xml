@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ProgrammerCalculator" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.ProgrammerCalculator" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,4 +13,40 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!--    Button Styles -->
+    <style name="ButtonStyle">
+        <item name="android:layout_width">@dimen/size_18x</item>
+        <item name="android:layout_height">@dimen/size_18x</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/size_8x</item>
+        <item name="android:background">@drawable/bg_rounded</item>
+    </style>
+
+    <style name="ButtonStyle.LowEmphasis">
+        <item name="android:backgroundTint">@color/low_emphasis</item>
+    </style>
+
+    <style name="ButtonStyle.MediumEmphasis">
+        <item name="android:backgroundTint">@color/medium_emphasis</item>
+    </style>
+
+    <style name="ButtonStyle.HighEmphasis">
+        <item name="android:backgroundTint">@color/high_emphasis</item>
+    </style>
+
+    <!--    Radio Styles-->
+    <style name="RadioStyle">
+        <!--        <item name="android:layout_width">@dimen/size_13x</item>-->
+        <!--        <item name="android:layout_height">@dimen/size_8x</item>-->
+        <item name="android:layout_width">44dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:background">@drawable/bg_radio</item>
+        <item name="android:button">@android:color/transparent</item>
+        <item name="android:gravity">center</item>
+<!--        <item name="android:padding">@dimen/size_1x</item>-->
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
 </resources>

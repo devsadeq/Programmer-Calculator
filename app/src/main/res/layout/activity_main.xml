@@ -1,8 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:paddingHorizontal="20dp"
     tools:context=".MainActivity">
+
+    <RadioGroup
+        android:id="@+id/from_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_8x"
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/low_emphasis"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_1x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/from_radio_decimal"
+            style="@style/RadioStyle"
+            android:layout_marginEnd="@dimen/size_2x"
+            android:text="@string/decimal" />
+
+        <RadioButton
+            android:id="@+id/from_radio_binary"
+            style="@style/RadioStyle"
+            android:layout_marginEnd="@dimen/size_2x"
+            android:checked="true"
+            android:text="@string/binary" />
+
+        <RadioButton
+            android:id="@+id/from_radio_octal"
+            style="@style/RadioStyle"
+            android:layout_marginEnd="@dimen/size_2x"
+            android:text="@string/octal" />
+
+        <RadioButton
+            android:id="@+id/from_radio_hexadecimal"
+            style="@style/RadioStyle"
+            android:text="@string/hexadecimal" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_1x"
+        android:text="@string/to"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_8x"
+        app:layout_constraintEnd_toEndOf="@id/from_radio_group"
+        app:layout_constraintStart_toStartOf="@id/from_radio_group"
+        app:layout_constraintTop_toBottomOf="@+id/from_radio_group" />
+
+
+    <RadioGroup
+        android:id="@+id/to_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_1x"
+        android:background="@drawable/bg_rounded"
+        android:backgroundTint="@color/low_emphasis"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_1x"
+        app:layout_constraintEnd_toEndOf="@+id/from_radio_group"
+        app:layout_constraintStart_toStartOf="@+id/from_radio_group"
+        app:layout_constraintTop_toBottomOf="@id/tv_to">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/to_radio_decimal"
+            style="@style/RadioStyle"
+            android:layout_marginEnd="@dimen/size_2x"
+            android:text="@string/decimal" />
+
+        <RadioButton
+            android:id="@+id/to_radio_octal"
+            style="@style/RadioStyle"
+            android:layout_marginEnd="@dimen/size_2x"
+            android:text="@string/octal" />
+
+        <RadioButton
+            android:id="@+id/to_radio_hexadecimal"
+            style="@style/RadioStyle"
+            android:text="@string/hexadecimal" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.4"
+        android:gravity="end"
+        android:text="125441"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_output"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="end"
+        android:text="4452101"
+        android:textColor="@color/white"
+        android:textSize="64sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_f"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_f"
+        style="@style/ButtonStyle.MediumEmphasis"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_f"
+        app:layout_constraintBottom_toTopOf="@+id/btn_7"
+        app:layout_constraintEnd_toEndOf="@+id/btn_7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/btn_7" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_e"
+        style="@style/ButtonStyle.MediumEmphasis"
+        android:text="@string/btn_e"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_f"
+        app:layout_constraintEnd_toEndOf="@+id/btn_8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/btn_8" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_d"
+        style="@style/ButtonStyle.MediumEmphasis"
+        android:text="@string/btn_d"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_f"
+        app:layout_constraintEnd_toEndOf="@+id/btn_9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/btn_9" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_c"
+        style="@style/ButtonStyle.MediumEmphasis"
+        android:text="@string/btn_c"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_f"
+        app:layout_constraintEnd_toEndOf="@+id/btn_b"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/btn_b" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_7"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_7"
+        app:layout_constraintBottom_toTopOf="@+id/btn_4"
+        app:layout_constraintEnd_toEndOf="@+id/btn_4"
+        app:layout_constraintStart_toStartOf="@+id/btn_4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_8"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:text="@string/btn_8"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_7"
+        app:layout_constraintEnd_toEndOf="@+id/btn_5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_5" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_9"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:text="@string/btn_9"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_7"
+        app:layout_constraintEnd_toEndOf="@+id/btn_6"
+        app:layout_constraintStart_toStartOf="@+id/btn_6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_b"
+        style="@style/ButtonStyle.MediumEmphasis"
+        android:text="@string/btn_b"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_7"
+        app:layout_constraintEnd_toEndOf="@+id/btn_a"
+        app:layout_constraintStart_toStartOf="@+id/btn_a" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_4"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_4"
+        app:layout_constraintBottom_toTopOf="@+id/btn_1"
+        app:layout_constraintEnd_toEndOf="@+id/btn_1"
+        app:layout_constraintStart_toStartOf="@+id/btn_1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_5"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:text="@string/btn_5"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_4"
+        app:layout_constraintEnd_toEndOf="@+id/btn_2"
+        app:layout_constraintStart_toStartOf="@+id/btn_2" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_6"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:text="@string/btn_6"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_4"
+        app:layout_constraintEnd_toEndOf="@+id/btn_3"
+        app:layout_constraintStart_toStartOf="@+id/btn_3" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_a"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:text="@string/btn_a"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_4"
+        app:layout_constraintEnd_toEndOf="@+id/btn_clear"
+        app:layout_constraintStart_toStartOf="@+id/btn_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_1"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_1"
+        app:layout_constraintBottom_toTopOf="@+id/btn_decimal"
+        app:layout_constraintEnd_toEndOf="@+id/btn_decimal"
+        app:layout_constraintStart_toStartOf="@+id/btn_decimal" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_2"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:text="@string/btn_2"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_1"
+        app:layout_constraintEnd_toEndOf="@+id/btn_0"
+        app:layout_constraintStart_toStartOf="@+id/btn_0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_3"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:text="@string/btn_3"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_1"
+        app:layout_constraintEnd_toEndOf="@+id/btn_backspace"
+        app:layout_constraintStart_toStartOf="@+id/btn_backspace" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_clear"
+        style="@style/ButtonStyle.HighEmphasis"
+        android:backgroundTint="@color/orange"
+        android:text="@string/btn_clear"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_1"
+        app:layout_constraintEnd_toEndOf="@+id/btn_equals"
+        app:layout_constraintStart_toStartOf="@+id/btn_equals" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_decimal"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:layout_marginBottom="32dp"
+        android:text="@string/btn_decimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_0"
+        style="@style/ButtonStyle.LowEmphasis"
+        android:text="@string/btn_0"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_decimal"
+        app:layout_constraintEnd_toStartOf="@+id/btn_backspace"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_decimal" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_backspace"
+        style="@style/ButtonStyle.MediumEmphasis"
+        android:text="@string/btn_backspace"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_decimal"
+        app:layout_constraintEnd_toStartOf="@+id/btn_equals"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_equals"
+        style="@style/ButtonStyle.HighEmphasis"
+        android:text="@string/btn_equals"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_decimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_backspace" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
