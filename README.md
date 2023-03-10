@@ -4,7 +4,7 @@ This is a simple programmer calculator app built in Kotlin and XML. It supports 
 
 ## Screenshots
 
-![Dark](https://user-images.githubusercontent.com/64174395/224322188-7eeaf711-a7af-4661-9f9f-8313d5b8ddcb.png)
+![Dark](https://user-images.githubusercontent.com/64174395/224324204-9c2ba08e-9fbf-484b-a601-104f78f27bc0.png)
 
 ## Video Demo
 
