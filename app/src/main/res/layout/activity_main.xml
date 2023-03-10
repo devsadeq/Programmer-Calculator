@@ -113,7 +113,6 @@
         android:gravity="end"
         android:maxLength="12"
         android:maxLines="1"
-        android:text="122"
         android:textColor="@color/white"
         android:textSize="@dimen/size_9x"
         app:layout_constraintBottom_toTopOf="@+id/sv_output"
@@ -138,7 +137,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:gravity="end"
-            android:text="1252"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_25x" />
     </HorizontalScrollView>
