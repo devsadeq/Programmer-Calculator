@@ -12,6 +12,7 @@
     <dimen name="size_16x">64dp</dimen>
     <dimen name="size_18x">72dp</dimen>
     <dimen name="size_25x">100dp</dimen>
+    <dimen name="size_36x">144dp</dimen>
     <dimen name="size_50x">200dp</dimen>
 
     <!--    Text Sizes -->
@@ -20,6 +21,8 @@
     <dimen name="text_size_8x">16sp</dimen>
     <dimen name="text_size_9x">18sp</dimen>
     <dimen name="text_size_12x">24sp</dimen>
+    <dimen name="text_size_20x">40sp</dimen>
+    <dimen name="text_size_25x">50sp</dimen>
     <dimen name="text_size_32x">64sp</dimen>
 
 </resources>

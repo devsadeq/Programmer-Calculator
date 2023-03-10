@@ -50,8 +50,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onNumberClick(view: View) {
-        val number = (view as Button).text.toString()
-        tvInput.append(number)
+        if (tvInput.text.length == 12) return showToaster("Max length reached")
+        val button = view as Button
+        tvInput.append(button.text)
     }
 
     fun onOperationClick(view: View) {
@@ -115,6 +116,7 @@ class MainActivity : AppCompatActivity() {
     private fun isBothRadioGroupSelected(): Boolean =
         fromRadioGroup.checkedRadioButtonId != -1 && toRadioGroup.checkedRadioButtonId != -1
 
-    private fun showToaster(message: String) =
+    private fun showToaster(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 }
