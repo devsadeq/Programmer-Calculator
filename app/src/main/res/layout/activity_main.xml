@@ -33,7 +33,6 @@
             android:id="@+id/from_radio_binary"
             style="@style/RadioStyle"
             android:layout_marginEnd="@dimen/size_2x"
-            android:checked="true"
             android:onClick="onFromRadioButtonClick"
             android:text="@string/binary" />
 
@@ -52,14 +51,13 @@
 
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/tv_to"
+    <ImageView
+        android:id="@+id/iv_arrow_down"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size_1x"
-        android:text="@string/to"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_8x"
+        android:contentDescription="@string/arrow_down_icon"
+        android:src="@drawable/ic_arrow_down"
         app:layout_constraintEnd_toEndOf="@id/from_radio_group"
         app:layout_constraintStart_toStartOf="@id/from_radio_group"
         app:layout_constraintTop_toBottomOf="@+id/from_radio_group" />
@@ -76,13 +74,19 @@
         android:padding="@dimen/size_1x"
         app:layout_constraintEnd_toEndOf="@+id/from_radio_group"
         app:layout_constraintStart_toStartOf="@+id/from_radio_group"
-        app:layout_constraintTop_toBottomOf="@id/tv_to">
+        app:layout_constraintTop_toBottomOf="@id/iv_arrow_down">
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/to_radio_decimal"
             style="@style/RadioStyle"
             android:layout_marginEnd="@dimen/size_2x"
             android:text="@string/decimal" />
+
+        <RadioButton
+            android:id="@+id/to_radio_binary"
+            style="@style/RadioStyle"
+            android:layout_marginEnd="@dimen/size_2x"
+            android:text="@string/binary" />
 
         <RadioButton
             android:id="@+id/to_radio_octal"
@@ -97,29 +101,41 @@
 
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/tv_input"
+    <HorizontalScrollView
+        android:id="@+id/sv_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:alpha="0.4"
-        android:gravity="end"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_output"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/sv_output">
 
-    <TextView
-        android:id="@+id/tv_output"
+        <TextView
+            android:id="@+id/tv_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:alpha="0.4"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_9x" />
+
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/sv_output"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:gravity="end"
-        android:textColor="@color/white"
-        android:textSize="64sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_clear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginBottom="@dimen/size_6x"
+        app:layout_constraintBottom_toTopOf="@id/btn_clear">
+
+        <TextView
+            android:id="@+id/tv_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/size_6x"
+            android:gravity="end"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_32x" />
+    </HorizontalScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_clear"

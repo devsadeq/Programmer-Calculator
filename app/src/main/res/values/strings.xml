@@ -26,5 +26,6 @@
     <string name="octal">OCT</string>
     <string name="hexadecimal">HEX</string>
     <string name="to">to</string>
+    <string name="arrow_down_icon">Arrow down Icon representing the conversion direction</string>
 
 </resources>
