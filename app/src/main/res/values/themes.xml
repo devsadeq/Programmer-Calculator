@@ -18,33 +18,29 @@
     <style name="ButtonStyle">
         <item name="android:layout_width">@dimen/size_18x</item>
         <item name="android:layout_height">@dimen/size_18x</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@drawable/selector_text_color</item>
         <item name="android:textSize">@dimen/size_8x</item>
-        <item name="android:background">@drawable/bg_rounded</item>
     </style>
 
     <style name="ButtonStyle.LowEmphasis">
-        <item name="android:backgroundTint">@color/low_emphasis</item>
+        <item name="android:background">@drawable/selector_button_low</item>
     </style>
 
     <style name="ButtonStyle.MediumEmphasis">
-        <item name="android:backgroundTint">@color/medium_emphasis</item>
+        <item name="android:background">@drawable/selector_button_medium</item>
     </style>
 
     <style name="ButtonStyle.HighEmphasis">
-        <item name="android:backgroundTint">@color/high_emphasis</item>
+        <item name="android:background">@drawable/selector_button_high</item>
     </style>
 
     <!--    Radio Styles-->
     <style name="RadioStyle">
-        <!--        <item name="android:layout_width">@dimen/size_13x</item>-->
-        <!--        <item name="android:layout_height">@dimen/size_8x</item>-->
         <item name="android:layout_width">44dp</item>
         <item name="android:layout_height">24dp</item>
-        <item name="android:background">@drawable/bg_radio</item>
+        <item name="android:background">@drawable/selector_radio</item>
         <item name="android:button">@android:color/transparent</item>
         <item name="android:gravity">center</item>
-<!--        <item name="android:padding">@dimen/size_1x</item>-->
         <item name="android:textColor">@color/white</item>
     </style>
 

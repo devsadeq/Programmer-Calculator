@@ -13,5 +13,8 @@
     <color name="high_emphasis">#4B5EFC</color>
     <color name="background">#17171C</color>
     <color name="orange">#FF7F00</color>
+    <color name="disable_color">#2E2E2E</color>
+    <color name="ripple">#33000000</color>
+    <color name="disabled_text_color">#777777</color>
 
 </resources>

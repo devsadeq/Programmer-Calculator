@@ -5,6 +5,7 @@
     <dimen name="size_1x">4dp</dimen>
     <dimen name="size_2x">8dp</dimen>
     <dimen name="size_4x">16dp</dimen>
+    <dimen name="size_6x">24dp</dimen>
     <dimen name="size_8x">32sp</dimen>
     <dimen name="size_13x">52dp</dimen>
     <dimen name="size_18x">72dp</dimen>
