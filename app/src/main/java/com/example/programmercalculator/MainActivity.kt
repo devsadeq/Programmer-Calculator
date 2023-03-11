@@ -7,21 +7,23 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.programmercalculator.util.Constants.BACKSPACE
-import com.example.programmercalculator.util.Constants.CHOOSE_MSG
-import com.example.programmercalculator.util.Constants.CLEAR
-import com.example.programmercalculator.util.Constants.EQUAL
-import com.example.programmercalculator.util.Constants.OOPS_MSG
+import com.example.programmercalculator.util.Constants.ACTION_BACKSPACE
+import com.example.programmercalculator.util.Constants.ACTION_CLEAR
+import com.example.programmercalculator.util.Constants.ACTION_EQUAL
+import com.example.programmercalculator.util.Constants.CONVERSION_TYPE_MISSING_MSG
+import com.example.programmercalculator.util.Constants.GENERIC_ERROR_MSG
+import com.example.programmercalculator.util.Constants.MAX_INPUT_LENGTH
+import com.example.programmercalculator.util.Constants.MAX_INPUT_LENGTH_REACHED_MSG
 import com.example.programmercalculator.util.ConvertType
 import com.example.programmercalculator.util.getSelectedType
 
 
 class MainActivity : AppCompatActivity() {
     private val converter: ProgrammerConverter by lazy { ProgrammerConverter() }
-    private val fromRadioGroup: RadioGroup by lazy { findViewById(R.id.from_radio_group) }
-    private val toRadioGroup: RadioGroup by lazy { findViewById(R.id.to_radio_group) }
-    private val tvInput: TextView by lazy { findViewById(R.id.tv_input) }
-    private val tvOutput: TextView by lazy { findViewById(R.id.tv_output) }
+    private val inputTypeRadioGroup: RadioGroup by lazy { findViewById(R.id.input_type_radio_group) }
+    private val outputTypeRadioGroup: RadioGroup by lazy { findViewById(R.id.output_type_radio_group) }
+    private val inputTextView: TextView by lazy { findViewById(R.id.tv_input) }
+    private val outputTextView: TextView by lazy { findViewById(R.id.tv_output) }
     private val inputs: List<Button> by lazy {
         listOf(
             findViewById(R.id.btn_0),
@@ -46,57 +48,59 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        disableAllButtons()
+        disableInputButtons()
     }
 
-    fun onNumberClick(view: View) {
-        if (tvInput.text.length == 12) return showToaster("Max length reached")
+    fun onDigitClick(view: View) {
+        if (inputTextView.text.length == MAX_INPUT_LENGTH) return showToast(
+            MAX_INPUT_LENGTH_REACHED_MSG
+        )
         val button = view as Button
-        tvInput.append(button.text)
+        inputTextView.append(button.text)
     }
 
-    fun onOperationClick(view: View) {
+    fun onActionClick(view: View) {
         when ((view as Button).text.toString()) {
-            EQUAL -> onConvert()
-            CLEAR -> clearAll()
-            BACKSPACE -> onBackspaceClick()
+            ACTION_EQUAL -> onConvert()
+            ACTION_CLEAR -> clearAll()
+            ACTION_BACKSPACE -> onBackspaceClick()
         }
     }
 
-    fun onFromRadioButtonClick(view: View) {
+    fun onInputTypeRadioButtonClick(view: View) {
         clearAll()
-        enableDisableButtons(fromRadioGroup.getSelectedType())
+        disableInvalidButtons(inputTypeRadioGroup.getSelectedType())
     }
 
     private fun clearAll() {
-        tvInput.text = ""
-        tvOutput.text = ""
+        inputTextView.text = ""
+        outputTextView.text = ""
     }
 
     private fun onBackspaceClick() {
-        val input = tvInput.text.toString()
+        val input = inputTextView.text.toString()
         input.takeIf { it.isNotEmpty() }?.let {
-            tvInput.text = input.substring(0, input.length - 1)
+            inputTextView.text = input.substring(0, input.length - 1)
         }
     }
 
     private fun onConvert() {
         try {
-            if (!isBothRadioGroupSelected()) return showToaster(CHOOSE_MSG)
-            tvInput.text.toString().takeIf { it.isNotEmpty() }?.let {
-                val fromType = fromRadioGroup.getSelectedType()
-                val toType = toRadioGroup.getSelectedType()
-                tvOutput.text = converter.convert(input = it, from = fromType, to = toType)
+            if (!areBothTypeRadioGroupsSelected()) return showToast(CONVERSION_TYPE_MISSING_MSG)
+            inputTextView.text.toString().takeIf { it.isNotEmpty() }?.let {
+                val inputType = inputTypeRadioGroup.getSelectedType()
+                val outputType = outputTypeRadioGroup.getSelectedType()
+                outputTextView.text =
+                    converter.convert(input = it, inputType = inputType, outputType = outputType)
             }
         } catch (e: Exception) {
             clearAll()
-            showToaster(OOPS_MSG)
-            throw e
+            showToast(GENERIC_ERROR_MSG)
         }
     }
 
-    private fun enableDisableButtons(from: ConvertType) {
-        enableAllButtons()
+    private fun disableInvalidButtons(from: ConvertType) {
+        enableInputButtons()
 
         val validInputs: List<String> = when (from) {
             ConvertType.BINARY -> (0..1).map { it.toString() }
@@ -109,14 +113,14 @@ class MainActivity : AppCompatActivity() {
             .forEach { it.isEnabled = false }
     }
 
-    private fun enableAllButtons() = inputs.forEach { it.isEnabled = true }
+    private fun enableInputButtons() = inputs.forEach { it.isEnabled = true }
 
-    private fun disableAllButtons() = inputs.forEach { it.isEnabled = false }
+    private fun disableInputButtons() = inputs.forEach { it.isEnabled = false }
 
-    private fun isBothRadioGroupSelected(): Boolean =
-        fromRadioGroup.checkedRadioButtonId != -1 && toRadioGroup.checkedRadioButtonId != -1
+    private fun areBothTypeRadioGroupsSelected(): Boolean =
+        inputTypeRadioGroup.checkedRadioButtonId != -1 && outputTypeRadioGroup.checkedRadioButtonId != -1
 
-    private fun showToaster(message: String) {
+    private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

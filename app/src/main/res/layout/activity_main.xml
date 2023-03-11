@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <RadioGroup
-        android:id="@+id/from_radio_group"
+        android:id="@+id/input_type_radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size_8x"
@@ -27,27 +27,27 @@
             android:id="@+id/from_radio_decimal"
             style="@style/RadioStyle"
             android:layout_marginEnd="@dimen/size_2x"
-            android:onClick="onFromRadioButtonClick"
+            android:onClick="onInputTypeRadioButtonClick"
             android:text="@string/decimal" />
 
         <RadioButton
             android:id="@+id/from_radio_binary"
             style="@style/RadioStyle"
             android:layout_marginEnd="@dimen/size_2x"
-            android:onClick="onFromRadioButtonClick"
+            android:onClick="onInputTypeRadioButtonClick"
             android:text="@string/binary" />
 
         <RadioButton
             android:id="@+id/from_radio_octal"
             style="@style/RadioStyle"
             android:layout_marginEnd="@dimen/size_2x"
-            android:onClick="onFromRadioButtonClick"
+            android:onClick="onInputTypeRadioButtonClick"
             android:text="@string/octal" />
 
         <RadioButton
             android:id="@+id/from_radio_hexadecimal"
             style="@style/RadioStyle"
-            android:onClick="onFromRadioButtonClick"
+            android:onClick="onInputTypeRadioButtonClick"
             android:text="@string/hexadecimal" />
 
     </RadioGroup>
@@ -58,13 +58,13 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/arrow_down_icon"
         android:src="@drawable/ic_arrow_down"
-        app:layout_constraintBottom_toTopOf="@+id/to_radio_group"
-        app:layout_constraintEnd_toEndOf="@id/from_radio_group"
-        app:layout_constraintStart_toStartOf="@id/from_radio_group"
-        app:layout_constraintTop_toBottomOf="@+id/from_radio_group" />
+        app:layout_constraintBottom_toTopOf="@+id/output_type_radio_group"
+        app:layout_constraintEnd_toEndOf="@id/input_type_radio_group"
+        app:layout_constraintStart_toStartOf="@id/input_type_radio_group"
+        app:layout_constraintTop_toBottomOf="@+id/input_type_radio_group" />
 
     <RadioGroup
-        android:id="@+id/to_radio_group"
+        android:id="@+id/output_type_radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
@@ -74,8 +74,8 @@
         android:orientation="horizontal"
         android:padding="@dimen/size_1x"
         app:layout_constraintBottom_toTopOf="@+id/tv_input"
-        app:layout_constraintEnd_toEndOf="@+id/from_radio_group"
-        app:layout_constraintStart_toStartOf="@+id/from_radio_group"
+        app:layout_constraintEnd_toEndOf="@+id/input_type_radio_group"
+        app:layout_constraintStart_toStartOf="@+id/input_type_radio_group"
         app:layout_constraintTop_toBottomOf="@id/iv_arrow_down">
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -118,7 +118,7 @@
         app:layout_constraintBottom_toTopOf="@+id/sv_output"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/to_radio_group" />
+        app:layout_constraintTop_toBottomOf="@+id/output_type_radio_group" />
 
     <HorizontalScrollView
         android:id="@+id/sv_output"
@@ -147,7 +147,7 @@
         android:layout_width="0dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/orange"
-        android:onClick="onOperationClick"
+        android:onClick="onActionClick"
         android:text="@string/btn_clear"
         app:layout_constraintBottom_toTopOf="@+id/btn_7"
         app:layout_constraintEnd_toStartOf="@+id/btn_f"
@@ -160,7 +160,7 @@
         style="@style/ButtonStyle.MediumEmphasis"
         android:layout_width="0dp"
         android:layout_marginStart="16dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_f"
         app:layout_constraintEnd_toStartOf="@+id/btn_e"
         app:layout_constraintHorizontal_bias="0.5"
@@ -172,7 +172,7 @@
         style="@style/ButtonStyle.MediumEmphasis"
         android:layout_width="0dp"
         android:layout_marginStart="16dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_e"
         app:layout_constraintEnd_toStartOf="@+id/btn_d"
         app:layout_constraintHorizontal_bias="0.5"
@@ -184,7 +184,7 @@
         style="@style/ButtonStyle.MediumEmphasis"
         android:layout_width="0dp"
         android:layout_marginStart="16dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_d"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -196,7 +196,7 @@
         style="@style/ButtonStyle.LowEmphasis"
         android:layout_width="0dp"
         android:layout_marginTop="16dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_7"
         app:layout_constraintBottom_toTopOf="@+id/btn_4"
         app:layout_constraintEnd_toEndOf="@+id/btn_clear"
@@ -207,7 +207,7 @@
         android:id="@+id/btn_8"
         style="@style/ButtonStyle.LowEmphasis"
         android:layout_width="0dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_8"
         app:layout_constraintEnd_toEndOf="@+id/btn_f"
         app:layout_constraintHorizontal_bias="0.0"
@@ -218,7 +218,7 @@
         android:id="@+id/btn_9"
         style="@style/ButtonStyle.LowEmphasis"
         android:layout_width="0dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_9"
         app:layout_constraintEnd_toEndOf="@+id/btn_e"
         app:layout_constraintStart_toStartOf="@+id/btn_e"
@@ -228,7 +228,7 @@
         android:id="@+id/btn_c"
         style="@style/ButtonStyle.MediumEmphasis"
         android:layout_width="0dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_c"
         app:layout_constraintEnd_toEndOf="@+id/btn_d"
         app:layout_constraintStart_toStartOf="@+id/btn_d"
@@ -239,7 +239,7 @@
         style="@style/ButtonStyle.LowEmphasis"
         android:layout_width="0dp"
         android:layout_marginTop="16dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_4"
         app:layout_constraintBottom_toTopOf="@+id/btn_1"
         app:layout_constraintEnd_toEndOf="@+id/btn_7"
@@ -250,7 +250,7 @@
         android:id="@+id/btn_5"
         style="@style/ButtonStyle.LowEmphasis"
         android:layout_width="0dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_5"
         app:layout_constraintEnd_toEndOf="@+id/btn_8"
         app:layout_constraintStart_toStartOf="@+id/btn_8"
@@ -260,7 +260,7 @@
         android:id="@+id/btn_6"
         style="@style/ButtonStyle.LowEmphasis"
         android:layout_width="0dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_6"
         app:layout_constraintEnd_toEndOf="@+id/btn_9"
         app:layout_constraintStart_toStartOf="@+id/btn_9"
@@ -270,7 +270,7 @@
         android:id="@+id/btn_b"
         style="@style/ButtonStyle.MediumEmphasis"
         android:layout_width="0dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_b"
         app:layout_constraintEnd_toEndOf="@+id/btn_c"
         app:layout_constraintStart_toStartOf="@+id/btn_c"
@@ -281,7 +281,7 @@
         style="@style/ButtonStyle.LowEmphasis"
         android:layout_width="0dp"
         android:layout_marginTop="16dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_1"
         app:layout_constraintBottom_toTopOf="@+id/btn_0"
         app:layout_constraintEnd_toEndOf="@+id/btn_4"
@@ -292,7 +292,7 @@
         android:id="@+id/btn_2"
         style="@style/ButtonStyle.LowEmphasis"
         android:layout_width="0dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_2"
         app:layout_constraintEnd_toEndOf="@+id/btn_5"
         app:layout_constraintStart_toStartOf="@+id/btn_5"
@@ -302,7 +302,7 @@
         android:id="@+id/btn_3"
         style="@style/ButtonStyle.LowEmphasis"
         android:layout_width="0dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_3"
         app:layout_constraintEnd_toEndOf="@+id/btn_6"
         app:layout_constraintStart_toStartOf="@+id/btn_6"
@@ -313,7 +313,7 @@
         android:id="@+id/btn_a"
         style="@style/ButtonStyle.MediumEmphasis"
         android:layout_width="0dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_a"
         app:layout_constraintEnd_toEndOf="@+id/btn_b"
         app:layout_constraintHorizontal_bias="0.0"
@@ -324,7 +324,7 @@
         android:id="@+id/btn_equals"
         style="@style/ButtonStyle.HighEmphasis"
         android:layout_width="0dp"
-        android:onClick="onOperationClick"
+        android:onClick="onActionClick"
         android:text="@string/btn_equals"
         app:layout_constraintBottom_toBottomOf="@+id/btn_0"
         app:layout_constraintEnd_toEndOf="@+id/btn_a"
@@ -338,7 +338,7 @@
         android:layout_width="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="57dp"
-        android:onClick="onNumberClick"
+        android:onClick="onDigitClick"
         android:text="@string/btn_0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btn_1"
@@ -350,7 +350,7 @@
         android:id="@+id/btn_backspace"
         style="@style/ButtonStyle.MediumEmphasis"
         android:layout_width="0dp"
-        android:onClick="onOperationClick"
+        android:onClick="onActionClick"
         android:text="@string/btn_backspace"
         app:layout_constraintBottom_toBottomOf="@+id/btn_0"
         app:layout_constraintEnd_toEndOf="@+id/btn_2"
