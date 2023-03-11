@@ -4,6 +4,7 @@ This is a simple programmer calculator app built in Kotlin and XML. It supports 
 
 ## Screenshots
 View on Figma [here](https://www.figma.com/file/HnKPvaSbo4yYEZcnpmpRdN/Untitled?node-id=0%3A1&t=6CBOdFv3IUbWX6AG-1).
+
 ![Dark](https://user-images.githubusercontent.com/64174395/224324204-9c2ba08e-9fbf-484b-a601-104f78f27bc0.png)
 
 ## Video Demo
